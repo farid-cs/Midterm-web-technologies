@@ -1,18 +1,20 @@
 button {
-    height: 50%;
-    width: 50%;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-size: 40px;
 }
 
 .calculator {
     background: red;
     height: 90vh;
-    width: 95vw;
+    aspect-ratio: 1 / 2;
 }
 
 .buttons {
     height: 100%;
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
+    gap: 5px;
 }
