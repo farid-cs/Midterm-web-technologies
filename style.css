@@ -4,6 +4,10 @@
   font-family: 'Arial', sans-serif;
 }
 
+p {
+    font-size: 40px;
+}
+
 button {
     width: 100%;
     aspect-ratio: 1;
@@ -13,9 +17,10 @@ button {
 }
 
 .calculator {
+    text-align: right;
     background: red;
-    height: 90vh;
-    aspect-ratio: 1 / 2;
+    width: 30vw;
+    position: relative;
 }
 
 .buttons {
