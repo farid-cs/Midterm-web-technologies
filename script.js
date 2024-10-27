@@ -1,8 +1,8 @@
 const buttons = document.getElementsByTagName('button');
 let input = document.getElementsByClassName('input')[0];
 
-function callback(ev) {
-	let text = ev.target.innerText;
+function callback(event) {
+	let text = event.target.innerText;
 
 	switch (text) {
 	case '=':
