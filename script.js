@@ -10,9 +10,16 @@ function callback(event) {
 		break;
 	case '←':
 		input.innerText = input.innerText.slice(0, -1);
+		if (input.innerText.length === 0) {
+			input.innerText = '0';
+		}
 		break;
 	case 'C':
-		input.innerText = '';
+		input.innerText = '0';
+		break;
+	case '.':
+		if (input.innerText[input.innerText.length - 1] !== '.')
+			input.innerText += text;
 		break;
 	case '+':
 	case '-':
@@ -27,7 +34,12 @@ function callback(event) {
 		case '%':
 			input.innerText = input.innerText.slice(0, -1);
 		}
+		input.innerText += text;
+		break;
 	default:
+		if (input.innerText === '0' && text !== '.') {
+			input.innerText = input.innerText.slice(0, -1);
+		}
 		input.innerText += text;
 	}
 }
