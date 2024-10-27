@@ -14,6 +14,19 @@ function callback(event) {
 	case 'C':
 		input.innerText = '';
 		break;
+	case '+':
+	case '-':
+	case 'X':
+	case '/':
+	case '%':
+		switch (input.innerText[input.innerText.length - 1]) {
+		case '+':
+		case '-':
+		case 'X':
+		case '/':
+		case '%':
+			input.innerText = input.innerText.slice(0, -1);
+		}
 	default:
 		input.innerText += text;
 	}
