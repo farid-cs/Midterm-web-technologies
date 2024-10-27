@@ -37,7 +37,7 @@ function callback(event) {
 		input.innerText += text;
 		break;
 	default:
-		if (input.innerText === '0' && text !== '.') {
+		if (input.innerText === '0') {
 			input.innerText = input.innerText.slice(0, -1);
 		}
 		input.innerText += text;
