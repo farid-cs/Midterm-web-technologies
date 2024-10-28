@@ -18,8 +18,25 @@ function callback(event) {
 		input.innerText = '0';
 		break;
 	case '.':
-		if (input.innerText[input.innerText.length - 1] !== '.')
-			input.innerText += text;
+		let offset = input.innerText.length - 1;
+
+		while (offset >= 0) {
+			switch (input.innerText[offset]) {
+			case '.':
+				return;
+			case '+':
+			case '-':
+			case '*':
+			case '/':
+			case '%':
+				break;
+			default:
+				offset--;
+				continue;
+			}
+			break;
+		}
+		input.innerText += text;
 		break;
 	case '+':
 	case '-':
