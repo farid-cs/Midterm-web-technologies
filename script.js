@@ -1,7 +1,8 @@
 const buttons = document.getElementsByTagName('button');
 let input = document.getElementsByClassName('input')[0];
 
-function callback(event) {
+function callback(event)
+{
 	let text = event.target.innerText;
 
 	switch (text) {
