@@ -10,25 +10,25 @@
     <div class="calculator">
         <p class="input">0</p>
         <div class="buttons">
-            <button class="operation">C</button>
-            <button class="operation">/</button>
-            <button class="operation">%</button>
-            <button class="operation">X</button>
-            <button class="digit">7</button>
-            <button class="digit">8</button>
-            <button class="digit">9</button>
+            <button onclick="clear_input()"        class="operation">C</button>
+            <button onclick="append_operator('/')" class="operation">/</button>
+            <button onclick="append_operator('%')" class="operation">%</button>
+            <button onclick="append_operator('X')" class="operation">X</button>
+            <button onclick="append_digit(7)"      class="digit">7</button>
+            <button onclick="append_digit(8)"      class="digit">8</button>
+            <button onclick="append_digit(9)"      class="digit">9</button>
             <button class="operation">±</button>
-            <button class="digit">4</button>
-            <button class="digit">5</button>
-            <button class="digit">6</button>
-            <button class="operation">-</button>
-            <button class="digit">1</button>
-            <button class="digit">2</button>
-            <button class="digit">3</button>
-            <button class="operation">+</button>
-            <button class="digit">.</button>
-            <button class="digit">0</button>
-            <button class="operation">←</button>
+            <button onclick="append_digit(4)"      class="digit">4</button>
+            <button onclick="append_digit(5)"      class="digit">5</button>
+            <button onclick="append_digit(6)"      class="digit">6</button>
+            <button onclick="append_operator('-')" class="operation">-</button>
+            <button onclick="append_digit(1)"      class="digit">1</button>
+            <button onclick="append_digit(2)"      class="digit">2</button>
+            <button onclick="append_digit(3)"      class="digit">3</button>
+            <button onclick="append_operator('+')" class="operation">+</button>
+            <button onclick="append_dot()"         class="digit">.</button>
+            <button onclick="append_digit(0)"      class="digit">0</button>
+            <button onclick="backspace()"          class="operation">←</button>
             <button class="operation">=</button>
         </div>
     </div>

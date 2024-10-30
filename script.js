@@ -1,67 +1,57 @@
-const buttons = document.getElementsByTagName('button');
 let input = document.getElementsByClassName('input')[0];
 
-function callback(event)
+
+function append_digit(digit)
 {
-	let text = event.target.innerText;
-
-	switch (text) {
-	case '=':
-		input.innerText = 'Result';
-		break;
-	case '←':
+	if (input.innerText === '0')
 		input.innerText = input.innerText.slice(0, -1);
-		if (input.innerText.length === 0) {
-			input.innerText = '0';
-		}
-		break;
-	case 'C':
-		input.innerText = '0';
-		break;
-	case '.':
-		let offset = input.innerText.length - 1;
+	input.innerText += digit;
+}
 
-		while (offset >= 0) {
-			switch (input.innerText[offset]) {
-			case '.':
-				return;
-			case '+':
-			case '-':
-			case '*':
-			case '/':
-			case '%':
-				break;
-			default:
-				offset--;
-				continue;
-			}
+function append_dot()
+{
+	let offset = input.innerText.length - 1;
+
+	while (offset >= 0) {
+		switch (input.innerText[offset]) {
+		case '.':
+			return;
+		case '+':
+		case '-':
+		case '*':
+		case '/':
+		case '%':
 			break;
+		default:
+			offset--;
+			continue;
 		}
-		input.innerText += text;
 		break;
+	}
+	input.innerText += '.';
+}
+
+function append_operator(operator)
+{
+	switch (input.innerText[input.innerText.length - 1]) {
 	case '+':
 	case '-':
 	case 'X':
 	case '/':
 	case '%':
-		switch (input.innerText[input.innerText.length - 1]) {
-		case '+':
-		case '-':
-		case 'X':
-		case '/':
-		case '%':
-			input.innerText = input.innerText.slice(0, -1);
-		}
-		input.innerText += text;
-		break;
-	default:
-		if (input.innerText === '0') {
-			input.innerText = input.innerText.slice(0, -1);
-		}
-		input.innerText += text;
+		input.innerText = input.innerText.slice(0, -1);
 	}
+	input.innerText += operator;
 }
 
-for (const button of buttons) {
-	button.addEventListener('click', callback);
+function backspace()
+{
+	input.innerText = input.innerText.slice(0, -1);
+	if (input.innerText.length === 0)
+		input.innerText = '0';
+}
+
+function clear_input()
+{
+	input.innerText = "0";
 }
