@@ -1,6 +1,5 @@
 let input = document.getElementsByClassName('input')[0];
 
-
 function append_digit(digit)
 {
 	if (input.innerText === '0')
