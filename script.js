@@ -54,3 +54,8 @@ function clear_input()
 {
 	input.innerText = "0";
 }
+
+function assign()
+{
+	input.innerText = eval(input.innerText);
+}
