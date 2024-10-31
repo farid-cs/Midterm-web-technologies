@@ -39,6 +39,8 @@ function append_operator(operator)
 	case '/':
 	case '%':
 		input.innerText = input.innerText.slice(0, -1);
+	default:
+		assign();
 	}
 	input.innerText += operator;
 }
