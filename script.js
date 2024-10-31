@@ -88,7 +88,7 @@ function calculate()
 
 function toggle_sign()
 {
-	if (/0 ?/.test(input.innerText))
+	if (/^0( .)?$/.test(input.innerText))
 		return;
 
 	let token_num = Array.from(
@@ -98,9 +98,9 @@ function toggle_sign()
 	).length;
 
 	if (token_num > 1) {
-		if (/ -[^ ]+$/.test(input.innerText)) {
+		if (/-[^ ]+$/.test(input.innerText)) {
 			input.innerText = input.innerText
-				.replace(/ -(.+)$/, ' $1');
+				.replace(/-([^ ]+)$/, ' $1');
 			return;
 		}
 		input.innerText = input.innerText
