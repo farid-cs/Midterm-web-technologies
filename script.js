@@ -40,7 +40,7 @@ function append_operator(operator)
 	case '%':
 		input.innerText = input.innerText.slice(0, -1);
 	default:
-		assign();
+		calculate();
 	}
 	input.innerText += operator;
 }
@@ -57,7 +57,7 @@ function clear_input()
 	input.innerText = "0";
 }
 
-function assign()
+function calculate()
 {
 	switch (input.innerText[input.innerText.length - 1]) {
 	case '+':
