@@ -56,13 +56,18 @@ function append_operator(operator)
 		break;
 	default:
 		if (/ * /.test(input.innerText))
-			calculate();
+			if (calculate() < 0)
+				return;
 	}
 	input.innerText = `${input.innerText} ${operator}`;
 }
 
 function backspace()
 {
+	if (/-.$/.test(input.innerText)) {
+		input.innerText = input.innerText.slice(0, -1);
+	}
+
 	input.innerText = input.innerText.slice(0, -1);
 	if (input.innerText.length === 0)
 		input.innerText = '0';
@@ -70,13 +75,19 @@ function backspace()
 
 function calculate()
 {
+	let is_invalid = / \.$|[A-z]/;
+	if (is_invalid.test(input.innerText)) {
+		alert('error: invalid input ');
+		return -1;
+	}
+
 	switch (input.innerText[input.innerText.length - 1]) {
 	case '+':
 	case '-':
 	case 'x':
 	case '/':
 	case '%':
-		return;
+		return 0;
 	}
 
 	let expression = input.innerText
@@ -84,6 +95,7 @@ function calculate()
 		.replace('%', '/100*');
 	previous.innerText = input.innerText;
 	input.innerText = eval(expression);
+	return -1;
 }
 
 function toggle_sign()
