@@ -53,10 +53,12 @@ function append_operator(operator)
 	case '/':
 	case '%':
 		input.innerText = input.innerText.slice(0, -1);
+		break;
 	default:
-		calculate();
+		if (/ * /.test(input.innerText))
+			calculate();
 	}
-	input.innerText = input.innerText + ' ' + operator + ' ';
+	input.innerText = `${input.innerText} ${operator}`;
 }
 
 function backspace()
@@ -74,18 +76,21 @@ function calculate()
 	case 'x':
 	case '/':
 	case '%':
-		alert("Missing operand");
 		return;
 	}
 
 	let expression = input.innerText
 		.replace('x', '*')
 		.replace('%', '/100*');
+	previous.innerText = input.innerText;
 	input.innerText = eval(expression);
 }
 
 function toggle_sign()
 {
+	if (/0 ?/.test(input.innerText))
+		return;
+
 	let token_num = Array.from(
 		input.innerText
 		.replace(/[\+\-x\/%]/g, ' ')
@@ -93,8 +98,7 @@ function toggle_sign()
 	).length;
 
 	if (token_num > 1) {
-		let is_negative = / -[^ ]+$/;
-		if (is_negative.test(input.innerText)) {
+		if (/ -[^ ]+$/.test(input.innerText)) {
 			input.innerText = input.innerText
 				.replace(/ -(.+)$/, ' $1');
 			return;
@@ -112,5 +116,7 @@ function toggle_sign()
 
 function clear_input()
 {
-	input.innerText = "0";
+	if (input.innerText === '0')
+		previous.innerText = '';
+	input.innerText = '0';
 }
