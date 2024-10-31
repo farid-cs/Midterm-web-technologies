@@ -8,16 +8,17 @@
 </head>
 <body>
     <div class="calculator">
+        <p class="previous"></p>
         <p class="input">0</p>
         <div class="buttons">
             <button onclick="clear_input()"        class="operation">C</button>
             <button onclick="append_operator('/')" class="operation">/</button>
             <button onclick="append_operator('%')" class="operation">%</button>
-            <button onclick="append_operator('X')" class="operation">X</button>
+            <button onclick="append_operator('x')" class="operation">x</button>
             <button onclick="append_digit(7)"      class="digit">7</button>
             <button onclick="append_digit(8)"      class="digit">8</button>
             <button onclick="append_digit(9)"      class="digit">9</button>
-            <button class="operation">±</button>
+            <button onclick="toggle_sign()"        class="operation">±</button>
             <button onclick="append_digit(4)"      class="digit">4</button>
             <button onclick="append_digit(5)"      class="digit">5</button>
             <button onclick="append_digit(6)"      class="digit">6</button>
