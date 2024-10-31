@@ -69,6 +69,8 @@ function assign()
 		return;
 	}
 
-	let expression = input.innerText.replace('X', '*');
+	let expression = input.innerText
+		.replace('X', '*')
+		.replace('%', '/100*');
 	input.innerText = eval(expression);
 }
