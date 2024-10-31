@@ -68,5 +68,7 @@ function assign()
 		alert("Missing operand");
 		return;
 	}
-	input.innerText = eval(input.innerText);
+
+	let expression = input.innerText.replace('X', '*');
+	input.innerText = eval(expression);
 }
