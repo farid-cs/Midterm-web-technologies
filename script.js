@@ -17,7 +17,7 @@ function append_dot()
 			return;
 		case '+':
 		case '-':
-		case '*':
+		case 'X':
 		case '/':
 		case '%':
 			break;
@@ -59,5 +59,14 @@ function clear_input()
 
 function assign()
 {
+	switch (input.innerText[input.innerText.length - 1]) {
+	case '+':
+	case '-':
+	case 'X':
+	case '/':
+	case '%':
+		alert("Missing operand");
+		return;
+	}
 	input.innerText = eval(input.innerText);
 }
